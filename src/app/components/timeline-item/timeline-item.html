@@ -1,0 +1,16 @@
+@let localItem = item();
+@let localIcon = icon();
+<span class="timeline-item-dot">
+  <fa-icon [icon]="localIcon" />
+</span>
+<time class="timeline-item-period">
+  {{ localItem.dateStart | date : 'MMMM y' }} - {{ localItem.dateEnd | date : 'MMMM y' }}
+</time>
+<h3 class="timeline-item-title">
+  {{ localItem.title }}
+</h3>
+<p class="timeline-item-description">{{ localItem.description }}</p>
+
+@if (localItem.link) {
+  <a [href]="localItem.link" class="timeline-item-link" target="_blank"><fa-icon [icon]="faGlobe" class="me-1" /> Visit</a>
+}

@@ -1,0 +1,7 @@
+<ol class="timeline">
+  @for (item of items(); track $index) {
+    <li class="timeline-list-item" [class.mb-10]="!$last">
+      <timeline-item [item]="item" [icon]="generalIcon()" />
+    </li>
+  }
+</ol>

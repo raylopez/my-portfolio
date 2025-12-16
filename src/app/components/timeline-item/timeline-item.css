@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+.timeline-item-dot {
+  @apply absolute flex items-center justify-center w-6 h-6 bg-[#60a5fa] rounded-full -start-3 ring-1 ring-[#071028] text-[#071028];
+}
+
+.timeline-item-dot fa-icon {
+  font-size: 14px !important;
+}
+
+.timeline-item-period {
+  @apply bg-gray-800 border border-gray-700 text-xs font-medium px-1.5 py-0.5 rounded-lg;
+}
+
+.timeline-item-title {
+  @apply font-[Onest_variable] flex items-center mb-1 text-lg font-semibold text-[white] my-2;
+}
+
+.timeline-item-description {
+  @apply mb-4 text-gray-400 text-sm;
+}
+
+.timeline-item-link {
+  @apply inline-flex items-center text-gray-400 bg-gray-800 box-border border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:ring-gray-800 shadow-xs font-medium leading-5 rounded-xl text-sm px-4 py-2.5 focus:outline-none;
+}

@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+.timeline {
+  @apply relative border-s border-gray-700;
+}
+
+.timeline-list-item {
+  @apply ms-6;
+}

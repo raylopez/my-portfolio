@@ -1,0 +1,98 @@
+@import 'tailwindcss';
+
+:root {
+  --accent: #60a5fa;
+}
+
+.home-container {
+  @apply m-3 font-[Onest_variable];
+}
+
+.home-content {
+  @apply flex flex-col sm:flex-row gap-2;
+}
+
+div.home-menu {
+  @apply ml-auto;
+}
+
+.home-menu nav ul{
+  @apply p-0 m-0 list-none;
+}
+
+.home-menu nav ul li{
+  @apply bg-[#60a5fa] text-[#012] py-2.5 px-3.5 mx-1 rounded-full font-semibold decoration-0 inline-block;
+}
+
+.candidate-title {
+  @apply text-2xl font-bold;
+}
+
+.candidate-subtitle {
+  @apply text-[14px] text-[#94a3b8];
+}
+
+.candidate-header {
+  @apply flex flex-row items-center gap-2 w-full h-25;
+}
+
+.candidate-avatar-placeholder {
+  @apply bg-[url(/assets/images/profile.jpg)] bg-cover w-20 h-20 rounded-[20px];
+}
+
+.candidate-info {
+  @apply flex flex-col w-1/4;
+}
+
+.experience-supertitle {
+  @apply text-xl font-bold flex flex-row content-center gap-1 items-center;
+}
+
+.experience-title {
+  @apply text-lg font-bold;
+}
+
+.experience-subtitle {
+  @apply text-sm text-[#94a3b8];
+}
+
+.experience-description {
+  @apply text-sm text-[#94a3b8];
+}
+
+.experience-about {
+  @apply text-sm text-[#94a3b8] text-justify;
+}
+
+.experience-degree {
+  @apply text-sm  italic;
+}
+
+.section-card {
+  @apply rounded-md bg-[#0b1220] p-5 my-3 flex flex-col;
+}
+
+.skill-list {
+  @apply flex flex-wrap gap-2 list-none p-0 mx-0 my-2;
+}
+
+.skill-list li {
+  @apply bg-gray-800 px-0 py-2 rounded-full text-sm text-gray-400;
+}
+
+.skills{
+  @apply flex flex-wrap gap-2 p-0 mx-2 my-0 list-none;
+}
+.skills li{
+  @apply bg-[#131927] text-[#94a3b8] rounded-[999px] py-0 px-2 text-sm;
+}
+
+.skills-icons {
+  @apply flex flex-row gap-2;
+}
+.skills-icons fa-icon{
+  @apply text-[18px];
+}
+
+.contact-section {
+}
