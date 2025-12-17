@@ -1,7 +1,7 @@
 import { Component, input } from '@angular/core';
 import { TimelineItem } from '../timeline-item/timeline-item';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { TimelineItemModel } from './timeline.model';
 
 @Component({
@@ -12,5 +12,5 @@ import { TimelineItemModel } from './timeline.model';
 })
 export class Timeline {
   items = input<TimelineItemModel[]>([]);
-  generalIcon = input<IconDefinition>(faCalendarDay);
+  generalIcon = input<IconDefinition>(faCalendarDays);
 }

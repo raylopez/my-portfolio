@@ -3,11 +3,12 @@ import { Canditate, Experience, SocialItem } from '../../models';
 import { CSharpIcon, Timeline,  } from '../../components';
 import { Canditates } from '../../services';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEnvelope, faGlobe, IconDefinition, faBriefcase, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faGlobe, IconDefinition, faBriefcase, faGraduationCap, faMobile, faInbox, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { Icons } from '../../services/icons';
 import { ViewportScroller } from '@angular/common';
 import { SmoothClick } from '../../directives';
 import { TimelineItemModel } from '../../components/timeline/timeline.model';
+import { File } from '../../services/file';
 
 interface SocialIconFontAwesome extends SocialItem {
   icon: IconDefinition
@@ -24,6 +25,7 @@ export class Home implements OnInit {
   private readonly candidatesService = inject(Canditates);
   private readonly iconService = inject(Icons);
   private readonly scrollService = inject(ViewportScroller);
+  private readonly fileService = inject(File);
 
   title = signal<string>('Eric Raymundo López Alonzo');
   canditate: Canditate | null = null;
@@ -35,6 +37,8 @@ export class Home implements OnInit {
   faGlobe = faGlobe;
   faBriefcase = faBriefcase;
   faGraduationCap = faGraduationCap;
+  faPhone = faPhone;
+  faInbox = faInbox;
 
   ngOnInit(): void {
     this.initialize();
@@ -70,4 +74,12 @@ export class Home implements OnInit {
     this.scrollService.scrollToAnchor(section, { behavior:"smooth" });
   }
 
+  public downloadResume() {
+    this.fileService.downloadPdf(this.canditate?.resumeUrl ?? '').subscribe({
+      next: (res) => {
+        const fileUrl = URL.createObjectURL(res);
+        window.open(fileUrl, '_blank');
+      }
+    });
+  }
 }

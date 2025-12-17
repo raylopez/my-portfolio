@@ -1,59 +1,98 @@
-# EricPortfolio
+# Developer Portfolio Landing Page 🚀
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.2.
+This project is a **personal portfolio landing page** built with **Angular**, designed to showcase information about a **Software Developer**, including skills, experience, and projects.
 
-## Development server
+## 📌 Overview
 
-To start a local development server, run:
+The main goal of this project is to provide a clean, modern, and responsive landing page that serves as a professional online presence for a software developer. It can be used as a **portfolio website** to attract recruiters and potential clients.
+
+## 🛠️ Technologies Used
+
+* **Angular**
+* **TypeScript**
+* **HTML5**
+* **CSS3**
+* **Tailwindcss**
+* **Fontawesome icons**
+* **Angular CLI**
+
+## ✨ Features
+
+* Single Page Application (SPA)
+* Responsive design
+* Minimalist UI
+* Sections for:
+
+  * About Me
+  * Contact information
+  * Skills
+  * Experience
+  * Education
+
+## 📂 Project Structure
+
+```bash
+src/
+ ├── app/
+ │   ├── components/
+ |   |── directives/
+ │   ├── pages/
+ |   |── models/
+ │   ├── services/
+ │   └── app.ts
+```
+
+## ▶️ Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+* **Node.js**
+* **Angular CLI**
+
+```bash
+npm install -g @angular/cli
+```
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/raylo/my-portfolio.git
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Run the project:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open your browser at:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📈 Use Case
 
-```bash
-ng generate --help
-```
+This project is intended for:
 
-## Building
+* Personal developer portfolio
+* Job applications
+* Professional branding
 
-To build the project run:
+## 📄 License
 
-```bash
-ng build
-```
+This project is open-source and available under the **MIT License**.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Made with ❤️ using **Angular**

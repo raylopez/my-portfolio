@@ -19,7 +19,8 @@ export class SmoothClick {
    public onHyperLinkClick(event : Event) {
     event.preventDefault();
     if (this.smoothTarget()) {
-      this.scrollService.scrollToAnchor(this.smoothTarget(), { behavior: 'smooth' });
+      this.scrollService.scrollToAnchor(this.smoothTarget(), { behavior: 'smooth', });
+      this.scrollService.setOffset([0, 100])
     }
    }
 }

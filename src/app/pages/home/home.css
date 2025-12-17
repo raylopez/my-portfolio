@@ -5,7 +5,7 @@
 }
 
 .home-container {
-  @apply m-3 font-[Onest_variable];
+  @apply m-3 font-[Onest_variable] flex flex-col;
 }
 
 .home-content {
@@ -21,7 +21,7 @@ div.home-menu {
 }
 
 .home-menu nav ul li{
-  @apply bg-[#60a5fa] text-[#012] py-2.5 px-3.5 mx-1 rounded-full font-semibold decoration-0 inline-block;
+  @apply bg-[#60a5fa] text-[#012] py-2.5 px-3.5 mx-1 rounded-full font-semibold decoration-0 inline-block cursor-pointer;
 }
 
 .candidate-title {
@@ -33,11 +33,7 @@ div.home-menu {
 }
 
 .candidate-header {
-  @apply flex flex-row items-center gap-2 w-full h-25;
-}
-
-.candidate-avatar-placeholder {
-  @apply bg-[url(/assets/images/profile.jpg)] bg-cover w-20 h-20 rounded-[20px];
+  @apply flex flex-row items-center gap-2 w-full h-25 bg-[#071028];
 }
 
 .candidate-info {
@@ -80,7 +76,7 @@ div.home-menu {
   @apply bg-gray-800 px-0 py-2 rounded-full text-sm text-gray-400;
 }
 
-.skills{
+.skills {
   @apply flex flex-wrap gap-2 p-0 mx-2 my-0 list-none;
 }
 .skills li{
@@ -94,5 +90,22 @@ div.home-menu {
   @apply text-[18px];
 }
 
+.skill-pill {
+  @apply inline-flex items-center px-3 py-1 rounded-full bg-[#ffffff08] text-[#94a3b8] text-sm;
+}
+
 .contact-section {
+  @apply flex flex-col gap-3;
+}
+
+.contact-section-list {
+  list-style: none;
+}
+
+.contact-section-list li a {
+  @apply hover:text-gray-500;
+}
+
+.contact-btn {
+  @apply bg-[#60a5fa] text-[#012] py-2.5 px-3.5 mx-1 rounded-md font-semibold decoration-0 inline-block cursor-pointer;
 }

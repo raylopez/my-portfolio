@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faCalendar, IconDefinition, faGlobe } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDays, IconDefinition, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { TimelineItemModel } from '../timeline/timeline.model';
 
 
@@ -13,6 +13,6 @@ import { TimelineItemModel } from '../timeline/timeline.model';
 })
 export class TimelineItem {
   item = input.required<TimelineItemModel>();
-  icon = input<IconDefinition>(faCalendar);
+  icon = input<IconDefinition>(faCalendarDays);
   faGlobe = faGlobe;
 }

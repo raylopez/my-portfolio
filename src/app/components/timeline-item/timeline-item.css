@@ -23,3 +23,7 @@
 .timeline-item-link {
   @apply inline-flex items-center text-gray-400 bg-gray-800 box-border border border-gray-700 hover:bg-gray-700 hover:text-white focus:ring-4 focus:ring-gray-800 shadow-xs font-medium leading-5 rounded-xl text-sm px-4 py-2.5 focus:outline-none;
 }
+
+.timeline-item-pill {
+  @apply inline-flex items-center px-3 py-1 rounded-full bg-[#ffffff08] text-[#94a3b8] text-sm mt-1;
+}

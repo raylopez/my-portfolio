@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+html {
+  scroll-margin-top: 75px;
+}
 body {
   margin:0;
   background:#071028;
