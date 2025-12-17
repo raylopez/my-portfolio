@@ -35,9 +35,9 @@ The main goal of this project is to provide a clean, modern, and responsive land
 src/
  ├── app/
  │   ├── components/
- |   |── directives/
+ │   │── directives/
  │   ├── pages/
- |   |── models/
+ │   │── models/
  │   ├── services/
  │   └── app.ts
 ```
@@ -50,9 +50,10 @@ Make sure you have installed:
 
 * **Node.js**
 * **Angular CLI**
+* **Bun package manager**
 
 ```bash
-npm install -g @angular/cli
+bun install -g @angular/cli
 ```
 
 ### Installation
@@ -66,7 +67,7 @@ git clone https://github.com/raylo/my-portfolio.git
 2. Install dependencies:
 
 ```bash
-npm install
+bun install
 ```
 
 3. Run the project:

@@ -5,7 +5,7 @@
 }
 
 .home-container {
-  @apply m-3 font-[Onest_variable] flex flex-col;
+  @apply m-3 flex flex-col;
 }
 
 .home-content {

@@ -13,7 +13,7 @@
 }
 
 .timeline-item-title {
-  @apply font-[Onest_variable] flex items-center mb-1 text-lg font-semibold text-[white] my-2;
+  @apply flex items-center mb-1 text-lg font-semibold text-[white] my-2;
 }
 
 .timeline-item-description {
