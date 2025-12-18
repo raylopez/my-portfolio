@@ -11,15 +11,20 @@ export class SmoothClick {
   private readonly scrollService = inject(ViewportScroller);
 
   public smoothTarget = input<string>('');
+  public isFirstTarget = input<boolean>(false);
 
-  constructor() {
-   }
-
-   @HostListener('click', ['$event'])
-   public onHyperLinkClick(event : Event) {
+  @HostListener('click', ['$event'])
+  public onHyperLinkClick(event : Event) {
     event.preventDefault();
-    if (this.smoothTarget()) {
-      this.scrollService.scrollToAnchor(this.smoothTarget(), { behavior: 'smooth', });
+
+    if (this.isFirstTarget()) {
+      this.scrollService.scrollToPosition([0,0], { behavior: 'smooth' });
+      return;
+    }
+
+    const smoothElement: HTMLElement = <HTMLElement>document.getElementById(this.smoothTarget());
+    if (smoothElement) {
+      this.scrollService.scrollToAnchor(smoothElement.id, { behavior: 'smooth', });
       this.scrollService.setOffset([0, 100])
     }
    }
