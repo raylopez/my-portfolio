@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, LOCALE_ID, OnInit, signal } from '@angular/core';
 import { Canditate, Experience, SocialItem } from '../../models';
 import { CSharpIcon, Timeline,  } from '../../components';
 import { Canditates } from '../../services';
@@ -19,6 +19,11 @@ interface SocialIconFontAwesome extends SocialItem {
   imports: [Timeline, FontAwesomeModule, SmoothClick, CSharpIcon],
   templateUrl: './home.html',
   styleUrl: './home.css',
+  providers:[
+    {
+      provide: LOCALE_ID, useValue: 'es'
+    }
+  ]
 })
 export class Home implements OnInit {
 
