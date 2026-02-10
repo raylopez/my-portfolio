@@ -14,7 +14,7 @@ export class Canditates {
     socialStatus: 'Soltero',
     email: 'eric.lopez.alonzo@gmail.com',
     phone: '+52 9991197513',
-    resumeUrl: '/assets/docs/cv.pdf',
+    resumeUrl: './assets/docs/cv.pdf',
     experenceJobs: [
       {
         name: 'Ritmann, S. de R.L. de C.V.',
@@ -115,7 +115,7 @@ export class Canditates {
     socialStatus: 'Soltero',
     email: 'eric.lopez.alonzo@gmail.com',
     phone: '+52 9991197513',
-    resumeUrl: '/assets/docs/cv.pdf',
+    resumeUrl: './assets/docs/cv.pdf',
     experenceJobs: [
       {
         name: 'Grupo plenum (Plenumsoft)',
