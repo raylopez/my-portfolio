@@ -1,10 +1,13 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Canditate } from '../models';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Canditates {
+
+  private readonly http = inject(HttpClient)
 
   private candidateEN: Canditate = {
     name: 'Eric Raymundo',
@@ -193,5 +196,9 @@ export class Canditates {
 
   public getCandidateOne(lang: 'es'| 'en' = 'es'): Canditate {
     return lang === 'en' ? this.candidateEN : this.candidateES;
+  }
+
+  public getCandidateRemote() {
+    return this.http.get<Canditate>(`http://localhost:3300/candidates/first`);
   }
 }

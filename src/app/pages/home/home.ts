@@ -9,7 +9,8 @@ import { ViewportScroller } from '@angular/common';
 import { SmoothClick } from '../../directives';
 import { TimelineItemModel } from '../../components/timeline/timeline.model';
 import { File } from '../../services/file';
-
+import { toSignal } from '@angular/core/rxjs-interop'
+import { tap } from 'rxjs';
 interface SocialIconFontAwesome extends SocialItem {
   icon: IconDefinition
 }
@@ -32,8 +33,6 @@ export class Home implements OnInit {
   private readonly scrollService = inject(ViewportScroller);
   private readonly fileService = inject(File);
 
-  title = signal<string>('Eric Raymundo López Alonzo');
-  canditate: Canditate | null = null;
   timelineItems: TimelineItemModel[] = [];
   educationTimeline: TimelineItemModel[] = [];
   skillIcons: IconDefinition[] = [];
@@ -49,12 +48,18 @@ export class Home implements OnInit {
     this.initialize();
   }
 
+  candidateToSignal = toSignal<Canditate>(this.candidatesService.getCandidateRemote()
+  .pipe(
+    tap((res)=> {
+      this.timelineItems = res.experenceJobs.map(e => this.convertToTimelineItem(e)).sort((a,b)=> (b.dateEnd > a.dateEnd) ? 1: -1 );
+      this.educationTimeline = res.education.map(e => this.convertToTimelineItem(e, true)).sort((a,b)=> (b.dateEnd > a.dateEnd) ? 1: -1 );
+      this.skillIcons = res.skills.map(s => this.iconService.getIconByKeyword(s));
+      this.socialItems = res.socials.map(s=> this.addIconToSocialItem(s));
+    })
+  )
+)
+
   private async initialize(){
-    this.canditate = this.candidatesService.getCandidateOne();
-    this.timelineItems =this.canditate.experenceJobs.map(e => this.convertToTimelineItem(e)).sort((a,b)=> (b.dateEnd > a.dateEnd) ? 1: -1 );
-    this.educationTimeline =this.canditate.education.map(e => this.convertToTimelineItem(e, true)).sort((a,b)=> (b.dateEnd > a.dateEnd) ? 1: -1 );
-    this.skillIcons = this.canditate.skills.map(s => this.iconService.getIconByKeyword(s));
-    this.socialItems = this.canditate.socials.map(s=> this.addIconToSocialItem(s));
   }
 
   private convertToTimelineItem(experience: Experience, isEducation: boolean = false): TimelineItemModel {
@@ -79,8 +84,8 @@ export class Home implements OnInit {
     this.scrollService.scrollToAnchor(section, { behavior:"smooth" });
   }
 
-  public downloadResume() {
-    this.fileService.downloadPdf(this.canditate?.resumeUrl ?? '').subscribe({
+  public downloadResume(url: string) {
+    this.fileService.downloadPdf(url).subscribe({
       next: (res) => {
         const fileUrl = URL.createObjectURL(res);
         window.open(fileUrl, '_blank');

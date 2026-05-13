@@ -1,10 +1,11 @@
 <div class="home-container min-h-screen">
-  @if (canditate) {
+  @let candidate = candidateToSignal();
+  @if (candidate) {
     <header class="candidate-header">
       <img class="size-16 rounded-full" src="assets/images/profile.png" />
       <div class="hidden flex-col md:flex">
-        <h1 class="candidate-title">¡Hola! Soy {{ canditate.name }} {{ canditate.lastName }}</h1>
-        <h2 class="candidate-subtitle">{{ canditate.position }}</h2>
+        <h1 class="candidate-title">¡Hola! Soy {{ candidate.name }} {{ candidate.lastName }}</h1>
+        <h2 class="candidate-subtitle">{{ candidate.position }}</h2>
         <div class="skills-icons">
           <c-sharp-icon />
           @for (skill of skillIcons; track $index) {
@@ -31,7 +32,7 @@
         <!-- About -->
         <div class="section-card" id="about">
           <h2 class="experience-supertitle mt-2 mb-2">Sobre mí</h2>
-          <p class="experience-about">{{ canditate.about }}</p>
+          <p class="experience-about">{{ candidate.about }}</p>
         </div>
         <!-- Skills -->
         <div class="section-card" id="skills">
@@ -39,7 +40,7 @@
             Habilidades
           </h2>
           <div class="flex flex-row flex-wrap gap-2">
-            @for (skill of canditate.skills; track $index) {
+            @for (skill of candidate.skills; track $index) {
               <span class="skill-pill">{{ skill }}</span>
             }
           </div>
@@ -49,7 +50,7 @@
             Aptitudes
           </h2>
           <div class="flex flex-row flex-wrap gap-2">
-            @for (skill of canditate.softSkills; track $index) {
+            @for (skill of candidate.softSkills; track $index) {
               <span class="skill-pill">{{ skill }}</span>
             }
           </div>
@@ -76,8 +77,8 @@
         <div class="flex flex-col gap-1">
           <h2 class="experience-supertitle"> <fa-icon [icon]="faEnvelope"/> Contacto</h2>
           <ul class="contact-section-list">
-            <li><fa-icon [icon]="faPhone" /> <a [href]=`tel:${canditate.phone}`> {{ canditate.phone }}</a></li>
-            <li><fa-icon [icon]="faInbox" /> <a [href]=`mailto:${canditate.email}`> {{ canditate.email }}</a></li>
+            <li><fa-icon [icon]="faPhone" /> <a [href]=`tel:${candidate.phone}`> {{ candidate.phone }}</a></li>
+            <li><fa-icon [icon]="faInbox" /> <a [href]=`mailto:${candidate.email}`> {{ candidate.email }}</a></li>
           </ul>
         </div>
         <div class="flex flex-col gap-1">
@@ -90,7 +91,7 @@
         </div>
 
         <div class="flex flex-row">
-          <button class="contact-btn" (click)="downloadResume()">Descargar CV</button>
+          <button class="contact-btn" (click)="downloadResume(candidate.resumeUrl)">Descargar CV</button>
         </div>
       </div>
     </main>
