@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { Canditate } from '../models';
-import { HttpClient } from '@angular/common/http';
+import { Candidate } from '@models';
+import { HttpClient, HttpResourceRequest } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +9,7 @@ export class Canditates {
 
   private readonly http = inject(HttpClient)
 
-  private candidateEN: Canditate = {
+  private candidateEN: Candidate = {
     name: 'Eric Raymundo',
     lastName: 'Lopez Alonzo',
     position: 'Ingeniero de Software — Desarrollo web y móvil • APIs • Bases de datos • Cloud',
@@ -18,6 +18,7 @@ export class Canditates {
     email: 'eric.lopez.alonzo@gmail.com',
     phone: '+52 9991197513',
     resumeUrl: './assets/docs/cv.pdf',
+    profilePhotoPath: 'assets/images/profile.png',
     experenceJobs: [
       {
         name: 'Ritmann, S. de R.L. de C.V.',
@@ -110,7 +111,7 @@ export class Canditates {
     ],
   };
 
-  private candidateES: Canditate = {
+  private candidateES: Candidate = {
     name: 'Eric Raymundo',
     lastName: 'Lopez Alonzo',
     position: 'Ingeniero de Software — Desarrollo web y móvil • APIs • Bases de datos • Cloud',
@@ -119,6 +120,7 @@ export class Canditates {
     email: 'eric.lopez.alonzo@gmail.com',
     phone: '+52 9991197513',
     resumeUrl: './assets/docs/cv.pdf',
+    profilePhotoPath: 'assets/images/profile.png',
     experenceJobs: [
       {
         name: 'Grupo plenum (Plenumsoft)',
@@ -194,11 +196,17 @@ export class Canditates {
     ],
   };
 
-  public getCandidateOne(lang: 'es'| 'en' = 'es'): Canditate {
+  public getCandidateOne(lang: 'es'| 'en' = 'es'): Candidate {
     return lang === 'en' ? this.candidateEN : this.candidateES;
   }
 
   public getCandidateRemote() {
-    return this.http.get<Canditate>(`http://localhost:3300/candidates/first`);
+    return this.http.get<Candidate>(`http://localhost:3300/candidates/first`);
+  }
+
+  public getCandidate = (): HttpResourceRequest => {
+    return {
+      url: 'http://localhost:3300/candidates/first',
+    }
   }
 }

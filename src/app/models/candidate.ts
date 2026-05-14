@@ -1,4 +1,6 @@
-export interface Canditate {
+import { TimelineItemModel } from "../components/timeline/timeline.model";
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
+export interface Candidate {
   name: string;
   lastName: string;
   position: string;
@@ -6,6 +8,7 @@ export interface Canditate {
   phone: string;
   email: string;
   resumeUrl: string;
+  profilePhotoPath: string;
   socialStatus: string;
   experenceJobs: Array<Experience>,
   education: Array<Experience>,
@@ -28,3 +31,16 @@ export interface SocialItem {
   url: string;
   name: string;
 }
+
+//ViewModels
+export interface SocialIconFontAwesome extends SocialItem {
+  icon: IconDefinition
+}
+
+export type CandidateModel = Omit<Candidate, 'experenceJobs' | 'education' | 'socials'>
+  & {
+    experenceJobsTimeline: Array<TimelineItemModel>,
+    educationTimeline: Array<TimelineItemModel>,
+    socialIcons: Array<SocialIconFontAwesome>,
+    skillIcons: Array<IconDefinition>,
+  }

@@ -1,14 +1,13 @@
 <div class="home-container min-h-screen">
-  @let candidate = candidateToSignal();
-  @if (candidate) {
+  @if (!candidateSignalHttp.isLoading() && candidateSignalHttp.value(); as candidate) {
     <header class="candidate-header">
-      <img class="size-16 rounded-full" src="assets/images/profile.png" />
+      <img class="size-16 rounded-full" [src]="candidate.profilePhotoPath" />
       <div class="hidden flex-col md:flex">
-        <h1 class="candidate-title">¡Hola! Soy {{ candidate.name }} {{ candidate.lastName }}</h1>
+        <h1 class="candidate-title"> {{ `¡Hola! Soy ${candidate.name } ${ candidate.lastName }` }}</h1>
         <h2 class="candidate-subtitle">{{ candidate.position }}</h2>
         <div class="skills-icons">
           <c-sharp-icon />
-          @for (skill of skillIcons; track $index) {
+          @for (skill of candidate.skillIcons; track $index) {
             @if (skill) {
               <fa-icon [icon]="skill" />
             }
@@ -61,7 +60,7 @@
             <fa-icon [icon]="faBriefcase" />
             Experiencia
           </h2>
-          <timeline [items]="timelineItems" />
+          <timeline [items]="candidate.experenceJobsTimeline" />
         </div>
         <!-- Education -->
         <div class="section-card" id="education">
@@ -69,7 +68,7 @@
             <fa-icon [icon]="faGraduationCap" />
             Educación
           </h2>
-          <timeline [items]="educationTimeline"  />
+          <timeline [items]="candidate.educationTimeline"  />
         </div>
       </div>
       <!-- Contact -->
@@ -84,7 +83,7 @@
         <div class="flex flex-col gap-1">
           <h2 class="experience-supertitle"><fa-icon [icon]="faGlobe"/>  Social</h2>
           <ul class="contact-section-list">
-            @for (social of socialItems; track $index) {
+            @for (social of candidate.socialIcons; track $index) {
               <li class="flex flex-row items-center"> <a target="_blank" [href]="social.url"><fa-icon [icon]="social.icon"/> {{ social.name }}</a></li>
             }
           </ul>
@@ -95,6 +94,10 @@
         </div>
       </div>
     </main>
+  } @else if(candidateSignalHttp.error()) {
+    <strong>Ocurrió un error al cargar la información</strong>
+  } @else if (candidateSignalHttp.isLoading()) {
+    <strong>Cargando...</strong>
   }
 </div>
 

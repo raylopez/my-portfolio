@@ -4,7 +4,7 @@ export interface TimelineItemModel {
   title: string;
   subtitle?: string;
   description: string,
-  tags: Array<string>,
+  tags?: Array<string>,
   link?: string
 }
 

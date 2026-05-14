@@ -1,2 +1,5 @@
-export * from './timeline/timeline'
 export * from './c-sharp-icon/c-sharp-icon'
+export * from './timeline/timeline'
+export * from './timeline-item/timeline-item'
+export * from './c-sharp-icon/c-sharp-icon'
+export * from './timeline/timeline.model'

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { faGithub, faLinkedin, faPhp, faAngular, faNodeJs, faHtml5, faCss, faJava, faAmazon, faReact, faVuejs, faJsSquare, faFacebook, faNode, faBootstrap, faAndroid, faAws  } from '@fortawesome/free-brands-svg-icons';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 interface IconKeyWord {
   iconKeyWord: string,
