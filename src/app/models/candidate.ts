@@ -1,6 +1,7 @@
-import { TimelineItemModel } from "../components/timeline/timeline.model";
-import { IconDefinition } from '@fortawesome/free-solid-svg-icons'
+import { TimelineItemModel } from '../components/timeline/timeline.model';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 export interface Candidate {
+  id: string;
   name: string;
   lastName: string;
   position: string;
@@ -10,11 +11,11 @@ export interface Candidate {
   resumeUrl: string;
   profilePhotoPath: string;
   socialStatus: string;
-  experenceJobs: Array<Experience>,
-  education: Array<Experience>,
-  skills: string[],
-  softSkills: string[],
-  socials: SocialItem[]
+  experenceJobs: Array<Experience>;
+  education: Array<Experience>;
+  skills: string[];
+  softSkills: string[];
+  socials: SocialItem[];
 }
 
 export interface Experience {
@@ -34,13 +35,21 @@ export interface SocialItem {
 
 //ViewModels
 export interface SocialIconFontAwesome extends SocialItem {
-  icon: IconDefinition
+  icon: IconDefinition;
 }
 
-export type CandidateModel = Omit<Candidate, 'experenceJobs' | 'education' | 'socials'>
-  & {
-    experenceJobsTimeline: Array<TimelineItemModel>,
-    educationTimeline: Array<TimelineItemModel>,
-    socialIcons: Array<SocialIconFontAwesome>,
-    skillIcons: Array<IconDefinition>,
-  }
+export type CandidateModel = Omit<Candidate, 'experenceJobs' | 'education' | 'socials'> & {
+  experenceJobsTimeline: Array<TimelineItemModel>;
+  educationTimeline: Array<TimelineItemModel>;
+  socialIcons: Array<SocialIconFontAwesome>;
+  skillIcons: Array<IconDefinition>;
+};
+
+/** DTO */
+export interface CandidateEditModel {
+  name: string;
+  lastName: string;
+  about: string;
+  email: string;
+  phone: string;
+}

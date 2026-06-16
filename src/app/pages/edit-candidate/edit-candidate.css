@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+.edit-candidate {
+  @apply p-4;
+  label {
+    @apply block text-sm/6 font-medium text-white;
+  }
+  input[type='text'],
+  input[type='number'],
+  input[type='email'] {
+    @apply block w-full rounded-md border border-gray-700 bg-white/5 px-3 py-1.5 text-base text-white outline-0 placeholder:text-gray-500  sm:text-sm/6;
+  }
+  .invalid {
+    input,
+    textarea {
+      @apply border-red-500 text-red-400 focus:border-red-500;
+    }
+  }
+
+  .text-error {
+    @apply text-red-400;
+  }
+
+  input[type='file'] {
+    @apply cursor-pointer bg-gray-800 border border-gray-700 text-white text-sm rounded-xl block w-full shadow-xs placeholder:text-white file:mr-4 file:py-2 file:px-4 file:rounded-l-none file:border-0 file:text-sm file:font-semibold file:bg-gray-700 file:text-gray-400 hover:file:bg-gray-800 file:cursor-pointer;
+  }
+
+  textarea {
+    @apply block w-full rounded-md border border-gray-700 bg-white/5 px-3 py-1.5 text-base text-white outline-0 placeholder:text-gray-500 sm:text-sm/6;
+  }
+
+  .form-group {
+    @apply my-4;
+  }
+  .form-group-file {
+    @apply mt-6;
+  }
+
+  .text-muted {
+    @apply text-gray-600;
+  }
+
+  button {
+    @apply bg-gray-600 text-white p-2 rounded-md cursor-pointer hover:bg-gray-700;
+    &:disabled {
+      @apply pointer-events-none bg-gray-400 opacity-[0.5];
+    }
+  }
+}

@@ -1,9 +1,8 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCalendarDays, IconDefinition, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { TimelineItemModel } from '../timeline/timeline.model';
-
 
 @Component({
   selector: 'timeline-item',

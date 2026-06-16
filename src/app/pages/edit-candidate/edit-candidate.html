@@ -1,0 +1,89 @@
+<section class="edit-candidate">
+  <h1 class="text-2xl font-bold">Editar candidato</h1>
+
+  @if (!candidateEdit.isLoading()) {
+    <form (submit)="saveCandidate($event)" method="post">
+      @let nameInvalid =
+        (candidateForm.name().touched() || candidateForm.name().dirty()) &&
+        candidateForm.name().invalid();
+      <div class="form-group" [class.invalid]="nameInvalid">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" [formField]="candidateForm.name" />
+        @if (nameInvalid) {
+          <ul>
+            @for (error of candidateForm.name().errors(); track error) {
+              <li>
+                <p class="text-error">{{ error.message }}</p>
+              </li>
+            }
+          </ul>
+        }
+      </div>
+      @let lastNameInvalid =
+        (candidateForm.lastName().touched() || candidateForm.lastName().dirty()) &&
+        candidateForm.lastName().invalid();
+      <div class="form-group" [class.invalid]="lastNameInvalid">
+        <label for="lastnames">Apellidos</label>
+        <input type="text" id="lastnames" [formField]="candidateForm.lastName" />
+        @if (lastNameInvalid) {
+          <ul>
+            @for (error of candidateForm.lastName().errors(); track error) {
+              <li class="text-error">{{ error.message }}</li>
+            }
+          </ul>
+        }
+      </div>
+      @let aboutInvalid =
+        (candidateForm.about().touched() || candidateForm.about().dirty()) &&
+        candidateForm.about().invalid();
+      <div class="form-group" [class.invalid]="aboutInvalid">
+        <label for="about">Acerca de</label>
+        <textarea id="about" rows="3" [formField]="candidateForm.about"></textarea>
+        <p class="text-muted">{{ candidateForm.about().value().length }} / 300</p>
+        @if (aboutInvalid) {
+          <ul>
+            @for (error of candidateForm.about().errors(); track error) {
+              <li class="text-error">{{ error.message }}</li>
+            }
+          </ul>
+        }
+      </div>
+      @let emailInvalid =
+        (candidateForm.email().touched() || candidateForm.email().dirty()) &&
+        candidateForm.email().invalid();
+      <div class="form-group" [class.invalid]="emailInvalid">
+        <label for="email">Correo</label>
+        <input type="email" id="email" [formField]="candidateForm.email" />
+        @if (emailInvalid) {
+          <ul>
+            @for (error of candidateForm.email().errors(); track error) {
+              <li class="text-error">{{ error.message }}</li>
+            }
+          </ul>
+        }
+      </div>
+      @let phoneInvalid =
+        (candidateForm.phone().touched() || candidateForm.phone().dirty()) &&
+        candidateForm.phone().invalid();
+      <div class="form-group" [class.invalid]="phoneInvalid">
+        <label for="phone">Teléfono</label>
+        <input type="text" id="phone" [formField]="candidateForm.phone" />
+        @if (phoneInvalid) {
+          <ul>
+            @for (error of candidateForm.phone().errors(); track error) {
+              <li class="text-error">{{ error.message }}</li>
+            }
+          </ul>
+        }
+      </div>
+      <div class="form-group form-group-file">
+        <label for="photo">Foto</label>
+        <input type="file" id="photo" (change)="onFileSelected($event)" />
+      </div>
+
+      <button type="submit" [disabled]="candidateForm().invalid()">Guardar</button>
+    </form>
+  } @else {
+    Cargando...
+  }
+</section>

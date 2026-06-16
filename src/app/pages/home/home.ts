@@ -1,8 +1,15 @@
 import { ViewportScroller } from '@angular/common';
 import { httpResource } from '@angular/common/http';
-import { Component, inject, LOCALE_ID, OnInit } from '@angular/core';
+import { Component, inject, LOCALE_ID, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBriefcase, faEnvelope, faGlobe, faGraduationCap, faInbox, faPhone } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBriefcase,
+  faEnvelope,
+  faGlobe,
+  faGraduationCap,
+  faInbox,
+  faPhone,
+} from '@fortawesome/free-solid-svg-icons';
 import { CSharpIcon, Timeline, TimelineItemModel } from '@components';
 import { Candidate, CandidateModel, Experience, SocialIconFontAwesome, SocialItem } from '@models';
 import { SmoothClick } from '@directives';
@@ -49,15 +56,18 @@ export class Home implements OnInit {
           .map((e) => this.convertToTimelineItem(e))
           .sort((a, b) => (b.dateEnd > a.dateEnd ? 1 : -1)),
         skillIcons: res.skills.map((s) => this.iconService.getIconByKeyword(s)),
-        socialIcons: res.socials.map((s) => this.addIconToSocialItem(s))
-      }
+        socialIcons: res.socials.map((s) => this.addIconToSocialItem(s)),
+      };
       return result;
     },
   });
 
   private async initialize() {}
 
-  private convertToTimelineItem(experience: Experience,isEducation: boolean = false): TimelineItemModel {
+  private convertToTimelineItem(
+    experience: Experience,
+    isEducation: boolean = false,
+  ): TimelineItemModel {
     const {
       name: title,
       periodStart: dateStart,
