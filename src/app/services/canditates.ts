@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { Canditate } from '../models';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class Canditates {
-
   private candidateEN: Canditate = {
     name: 'Eric Raymundo',
     lastName: 'Lopez Alonzo',
     position: 'Ingeniero de Software — Desarrollo web y móvil • APIs • Bases de datos • Cloud',
-    about: 'Ingeniero de software con experiencia en desarrollo de aplicaciones web y móviles, mantenimiento de WebAPIs, administración de bases de datos y despliegue en la nube (AWS/Azure). Enfocado en soluciones escalables, buen diseño y colaboración en equipo.',
+    about:
+      'Ingeniero de software con experiencia en desarrollo de aplicaciones web y móviles, mantenimiento de WebAPIs, administración de bases de datos y despliegue en la nube (AWS/Azure). Enfocado en soluciones escalables, buen diseño y colaboración en equipo.',
     socialStatus: 'Soltero',
     email: 'eric.lopez.alonzo@gmail.com',
     phone: '+52 9991197513',
@@ -18,56 +16,98 @@ export class Canditates {
     experenceJobs: [
       {
         name: 'Ritmann, S. de R.L. de C.V.',
-        periodStart: new Date(2012,4,1),
-        periodEnd: new Date(2012,7,1),
+        periodStart: new Date(2012, 4, 1),
+        periodEnd: new Date(2012, 7, 1),
         degree: 'Intern',
-        description: 'Development of a financial and statistical management for daily business operations, creation of technical documentation, (UML, ER diagrams, system manual) Database design.',
-        technologies: ['PHP', 'JQuery', 'CSS3', 'HTML', 'MySQL']
+        description:
+          'Development of a financial and statistical management for daily business operations, creation of technical documentation, (UML, ER diagrams, system manual) Database design.',
+        technologies: ['PHP', 'JQuery', 'CSS3', 'HTML', 'MySQL'],
       },
       {
         name: 'MAE del Golfo S.A.P.I. SOFOM ENR (Grupo Padio)',
-        periodStart: new Date(2014,2),
-        periodEnd: new Date(2015,0),
+        periodStart: new Date(2014, 2),
+        periodEnd: new Date(2015, 0),
         degree: 'Intern - Administrative assistant',
-        description: 'Development of a financial and statistical management for daily business operations, creation of technical documentation, (UML, ER diagrams, system manual) Database design.',
-        technologies:['PHP', 'MySQL',  'JQuery', 'CSS3', 'HTML', 'Bootstrap'],
-        link: 'https://www.maedelgolfo.com.mx'
+        description:
+          'Development of a financial and statistical management for daily business operations, creation of technical documentation, (UML, ER diagrams, system manual) Database design.',
+        technologies: ['PHP', 'MySQL', 'JQuery', 'CSS3', 'HTML', 'Bootstrap'],
+        link: 'https://www.maedelgolfo.com.mx',
       },
       {
         name: 'Grupo plenum (Plenumsoft)',
-        periodStart: new Date(2016,5),
-        periodEnd: new Date(2021,8),
+        periodStart: new Date(2016, 5),
+        periodEnd: new Date(2021, 8),
         degree: 'Software developer',
-        description: 'Development/maintenance of web and mobile apps, database management, software documentation, (UML diagrams, use cases), versioning code.',
-        technologies: ['C#', 'ASP .Net', 'Windows Forms', 'EntityFramework', 'Linq', 'Java', 'TortoiseSVN', 'Git', 'Java/Android', 'Spring Framework (Java)', 'Angular', 'Bootstrap'],
-        link: 'https://www.grupoplenum.com'
+        description:
+          'Development/maintenance of web and mobile apps, database management, software documentation, (UML diagrams, use cases), versioning code.',
+        technologies: [
+          'C#',
+          'ASP .Net',
+          'Windows Forms',
+          'EntityFramework',
+          'Linq',
+          'Java',
+          'TortoiseSVN',
+          'Git',
+          'Java/Android',
+          'Spring Framework (Java)',
+          'Angular',
+          'Bootstrap',
+        ],
+        link: 'https://www.grupoplenum.com',
       },
       {
         name: 'DaCodes',
-        periodStart: new Date(2021,8),
-        periodEnd: new Date(2023,11),
+        periodStart: new Date(2021, 8),
+        periodEnd: new Date(2023, 11),
         degree: 'Software engineer',
-        description: 'Development of web and mobile apps, management of repositories. database maintenance',
-        technologies: ['Angular', 'React', 'C#', '.Net Core', 'Github', 'CodeCommit', 'AWS Amplify', 'Bootstrap', 'Material Design',' Ant Design'],
-        link: 'https://dacodes.com'
+        description:
+          'Development of web and mobile apps, management of repositories. database maintenance',
+        technologies: [
+          'Angular',
+          'React',
+          'C#',
+          '.Net Core',
+          'Github',
+          'CodeCommit',
+          'AWS Amplify',
+          'Bootstrap',
+          'Material Design',
+          ' Ant Design',
+        ],
+        link: 'https://dacodes.com',
       },
       {
         name: 'TuIdentidad',
-        periodStart: new Date(2024,0),
-        periodEnd: new Date(2025,9),
+        periodStart: new Date(2024, 0),
+        periodEnd: new Date(2025, 9),
         degree: 'Software engineer',
-        description: 'Development of web apps, maintenance of WebAPI apps, database management, use of Docker containers.',
-        technologies: ['C#', '.Net Core', 'EntityFramework', 'Linq', 'NodeJS', 'Amazon Lambda',  'Github', 'AWS Amplify', 'Azure DevOps', 'Angular',  'Bootstrap',' Material Design'],
-        link: 'https://tuidentidad.com/'
+        description:
+          'Development of web apps, maintenance of WebAPI apps, database management, use of Docker containers.',
+        technologies: [
+          'C#',
+          '.Net Core',
+          'EntityFramework',
+          'Linq',
+          'NodeJS',
+          'Amazon Lambda',
+          'Github',
+          'AWS Amplify',
+          'Azure DevOps',
+          'Angular',
+          'Bootstrap',
+          ' Material Design',
+        ],
+        link: 'https://tuidentidad.com/',
       },
     ],
     education: [
       {
         name: 'Universidad Tecnologica Metropolitana',
-        periodStart: new Date(2010,8),
-        periodEnd: new Date(2012,8),
+        periodStart: new Date(2010, 8),
+        periodEnd: new Date(2012, 8),
         degree: 'Information and Communication Technologies - multimedia and E-Commerce',
-        description: ''
+        description: '',
       },
       {
         name: 'Universidad Tecnologica Metropolitana',
@@ -92,18 +132,18 @@ export class Canditates {
       'Entity Framework',
       'Spring',
       'AWS',
-      'Android'
+      'Android',
     ],
     softSkills: ['Respeto', 'Puntualidad', 'Proactividad', 'Autodidacta'],
     socials: [
       {
         url: 'https://www.linkedin.com/in/eric-lopez-alonzo/',
-        name: 'Linkedin'
+        name: 'Linkedin',
       },
       {
         url: 'https://github.com/raylopez',
-        name: 'Github'
-    }
+        name: 'Github',
+      },
     ],
   };
 
@@ -111,7 +151,8 @@ export class Canditates {
     name: 'Eric Raymundo',
     lastName: 'Lopez Alonzo',
     position: 'Ingeniero de Software — Desarrollo web y móvil • APIs • Bases de datos • Cloud',
-    about: 'Ingeniero de software con experiencia en desarrollo de aplicaciones web y móviles, mantenimiento de WebAPIs, administración de bases de datos y despliegue en la nube (AWS/Azure). Enfocado en soluciones escalables, buen diseño y colaboración en equipo.',
+    about:
+      'Ingeniero de software con experiencia en desarrollo de aplicaciones web y móviles, mantenimiento de WebAPIs, administración de bases de datos y despliegue en la nube (AWS/Azure). Enfocado en soluciones escalables, buen diseño y colaboración en equipo.',
     socialStatus: 'Soltero',
     email: 'eric.lopez.alonzo@gmail.com',
     phone: '+52 9991197513',
@@ -119,39 +160,80 @@ export class Canditates {
     experenceJobs: [
       {
         name: 'Grupo plenum (Plenumsoft)',
-        periodStart: new Date(2016,5),
-        periodEnd: new Date(2021,8),
+        periodStart: new Date(2016, 5),
+        periodEnd: new Date(2021, 8),
         degree: 'Ingeniero en desarrollo de software',
-        description: 'Desarrollo/mantenimiento de aplicaciones web y móvil en general, gestión de base de datos, documentación de software (diagrama UML, casos de uso), control de versiones de código.',
-        technologies: ['C#', 'ASP .Net', 'Windows Forms', 'EntityFramework', 'Linq', 'Java', 'TortoiseSVN', 'Git', 'Java/Android', 'Spring Framework (Java)', 'Angular', 'Bootstrap'],
-        link: 'https://www.grupoplenum.com'
+        description:
+          'Desarrollo/mantenimiento de aplicaciones web y móvil en general, gestión de base de datos, documentación de software (diagrama UML, casos de uso), control de versiones de código.',
+        technologies: [
+          'C#',
+          'ASP .Net',
+          'Windows Forms',
+          'EntityFramework',
+          'Linq',
+          'Java',
+          'TortoiseSVN',
+          'Git',
+          'Java/Android',
+          'Spring Framework (Java)',
+          'Angular',
+          'Bootstrap',
+        ],
+        link: 'https://www.grupoplenum.com',
       },
       {
         name: 'DaCodes',
-        periodStart: new Date(2021,8),
-        periodEnd: new Date(2023,11),
+        periodStart: new Date(2021, 8),
+        periodEnd: new Date(2023, 11),
         degree: 'Ingeniero en desarrollo de software',
-        description: 'Desarrollo de aplicaciones web, móviles, administración de repositorios Git, mantenimiento de base de datos, despliegue de aplicaciones web',
-        technologies: ['Angular', 'React', 'C#', '.Net Core', 'Github', 'CodeCommit', 'AWS Amplify', 'Bootstrap', 'Material Design',' Ant Design'],
-        link: 'https://dacodes.com'
+        description:
+          'Desarrollo de aplicaciones web, móviles, administración de repositorios Git, mantenimiento de base de datos, despliegue de aplicaciones web',
+        technologies: [
+          'Angular',
+          'React',
+          'C#',
+          '.Net Core',
+          'Github',
+          'CodeCommit',
+          'AWS Amplify',
+          'Bootstrap',
+          'Material Design',
+          ' Ant Design',
+        ],
+        link: 'https://dacodes.com',
       },
       {
         name: 'TuIdentidad',
-        periodStart: new Date(2024,0),
-        periodEnd: new Date(2025,9),
+        periodStart: new Date(2024, 0),
+        periodEnd: new Date(2025, 9),
         degree: 'Ingeniero en desarrollo de software',
-        description: 'Desarrollo de aplicaciones web, mantenimiento de aplicaciones de Web API (C# .NET Core), administración de base de datos, uso de contenedores Docker.',
-        technologies: ['C#', '.Net Core', 'EntityFramework', 'Linq', 'NodeJS', 'Amazon Lambda',  'Github', 'AWS Amplify', 'Azure DevOps', 'Angular',  'Bootstrap',' Material Design'],
-        link: 'https://tuidentidad.com/'
+        description:
+          'Desarrollo de aplicaciones web, mantenimiento de aplicaciones de Web API (C# .NET Core), administración de base de datos, uso de contenedores Docker.',
+        technologies: [
+          'C#',
+          '.Net Core',
+          'EntityFramework',
+          'Linq',
+          'NodeJS',
+          'Amazon Lambda',
+          'Github',
+          'AWS Amplify',
+          'Azure DevOps',
+          'Angular',
+          'Bootstrap',
+          ' Material Design',
+        ],
+        link: 'https://tuidentidad.com/',
       },
     ],
     education: [
       {
         name: 'Universidad Tecnologica Metropolitana',
-        periodStart: new Date(2010,8),
-        periodEnd: new Date(2012,8),
-        degree: 'Técnico Superior Universitario en Tecnologías de la Información — Multimedia y Comercio Electrónico.',
-        description: ''
+        periodStart: new Date(2010, 8),
+        periodEnd: new Date(2012, 8),
+        degree:
+          'Técnico Superior Universitario en Tecnologías de la Información — Multimedia y Comercio Electrónico.',
+        description: '',
       },
       {
         name: 'Universidad Tecnologica Metropolitana',
@@ -176,22 +258,22 @@ export class Canditates {
       'Entity Framework',
       'Spring',
       'AWS',
-      'Android'
+      'Android',
     ],
     softSkills: ['Respeto', 'Puntualidad', 'Proactividad', 'Autodidacta'],
     socials: [
       {
         url: 'https://www.linkedin.com/in/eric-lopez-alonzo/',
-        name: 'Linkedin'
+        name: 'Linkedin',
       },
       {
         url: 'https://github.com/raylopez',
-        name: 'Github'
-    }
+        name: 'Github',
+      },
     ],
   };
 
-  public getCandidateOne(lang: 'es'| 'en' = 'es'): Canditate {
+  public getCandidateOne(lang: 'es' | 'en' = 'es'): Canditate {
     return lang === 'en' ? this.candidateEN : this.candidateES;
   }
 }

@@ -1,9 +1,18 @@
 import { Component, inject, LOCALE_ID, OnInit, signal } from '@angular/core';
 import { Canditate, Experience, SocialItem } from '../../models';
-import { CSharpIcon, Timeline,  } from '../../components';
+import { CSharpIcon, Timeline } from '../../components';
 import { Canditates } from '../../services';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEnvelope, faGlobe, IconDefinition, faBriefcase, faGraduationCap, faMobile, faInbox, faPhone } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEnvelope,
+  faGlobe,
+  IconDefinition,
+  faBriefcase,
+  faGraduationCap,
+  faMobile,
+  faInbox,
+  faPhone,
+} from '@fortawesome/free-solid-svg-icons';
 import { Icons } from '../../services/icons';
 import { ViewportScroller } from '@angular/common';
 import { SmoothClick } from '../../directives';
@@ -11,7 +20,7 @@ import { TimelineItemModel } from '../../components/timeline/timeline.model';
 import { File } from '../../services/file';
 
 interface SocialIconFontAwesome extends SocialItem {
-  icon: IconDefinition
+  icon: IconDefinition;
 }
 
 @Component({
@@ -19,14 +28,14 @@ interface SocialIconFontAwesome extends SocialItem {
   imports: [Timeline, FontAwesomeModule, SmoothClick, CSharpIcon],
   templateUrl: './home.html',
   styleUrl: './home.css',
-  providers:[
+  providers: [
     {
-      provide: LOCALE_ID, useValue: 'es'
-    }
-  ]
+      provide: LOCALE_ID,
+      useValue: 'es',
+    },
+  ],
 })
 export class Home implements OnInit {
-
   private readonly candidatesService = inject(Canditates);
   private readonly iconService = inject(Icons);
   private readonly scrollService = inject(ViewportScroller);
@@ -37,8 +46,8 @@ export class Home implements OnInit {
   timelineItems: TimelineItemModel[] = [];
   educationTimeline: TimelineItemModel[] = [];
   skillIcons: IconDefinition[] = [];
-  socialItems: SocialIconFontAwesome[]= [];
-  faEnvelope =faEnvelope;
+  socialItems: SocialIconFontAwesome[] = [];
+  faEnvelope = faEnvelope;
   faGlobe = faGlobe;
   faBriefcase = faBriefcase;
   faGraduationCap = faGraduationCap;
@@ -49,34 +58,41 @@ export class Home implements OnInit {
     this.initialize();
   }
 
-  private async initialize(){
+  private async initialize() {
     this.canditate = this.candidatesService.getCandidateOne();
-    this.timelineItems =this.canditate.experenceJobs.map(e => this.convertToTimelineItem(e)).sort((a,b)=> (b.dateEnd > a.dateEnd) ? 1: -1 );
-    this.educationTimeline =this.canditate.education.map(e => this.convertToTimelineItem(e, true)).sort((a,b)=> (b.dateEnd > a.dateEnd) ? 1: -1 );
-    this.skillIcons = this.canditate.skills.map(s => this.iconService.getIconByKeyword(s));
-    this.socialItems = this.canditate.socials.map(s=> this.addIconToSocialItem(s));
+    this.timelineItems = this.canditate.experenceJobs
+      .map((e) => this.convertToTimelineItem(e))
+      .sort((a, b) => (b.dateEnd > a.dateEnd ? 1 : -1));
+    this.educationTimeline = this.canditate.education
+      .map((e) => this.convertToTimelineItem(e, true))
+      .sort((a, b) => (b.dateEnd > a.dateEnd ? 1 : -1));
+    this.skillIcons = this.canditate.skills.map((s) => this.iconService.getIconByKeyword(s));
+    this.socialItems = this.canditate.socials.map((s) => this.addIconToSocialItem(s));
   }
 
-  private convertToTimelineItem(experience: Experience, isEducation: boolean = false): TimelineItemModel {
+  private convertToTimelineItem(
+    experience: Experience,
+    isEducation: boolean = false,
+  ): TimelineItemModel {
     return {
       title: experience.name,
       dateStart: experience.periodStart,
       dateEnd: experience.periodEnd,
       description: isEducation ? experience.degree : experience.description,
       tags: experience.technologies ?? [],
-      link: experience.link
+      link: experience.link,
     };
   }
 
   private addIconToSocialItem(social: SocialItem): SocialIconFontAwesome {
     return {
       ...social,
-      icon: this.iconService.getIconByKeyword(social.name)
-    }
+      icon: this.iconService.getIconByKeyword(social.name),
+    };
   }
 
   public goToSection(section: string) {
-    this.scrollService.scrollToAnchor(section, { behavior:"smooth" });
+    this.scrollService.scrollToAnchor(section, { behavior: 'smooth' });
   }
 
   public downloadResume() {
@@ -84,7 +100,7 @@ export class Home implements OnInit {
       next: (res) => {
         const fileUrl = URL.createObjectURL(res);
         window.open(fileUrl, '_blank');
-      }
+      },
     });
   }
 }
